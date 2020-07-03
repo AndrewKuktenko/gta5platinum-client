@@ -1,0 +1,66 @@
+{
+  "name": "gta5platinum-client",
+  "version": "0.1.0",
+  "description": "Client for Rage GTA 5 RP",
+  "main": "index.js",
+  "private": true,
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --fix --ignore-pattern .gitignore",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "antd": "^3.26.8",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-dom": "^16.12.0",
+    "react-drag-listview": "^0.1.6",
+    "react-fast-compare": "^3.0.1",
+    "react-redux": "^7.1.3",
+    "react-resizable": "^1.10.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "pre-commit": "^1.2.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "roma@romaPC MINGW64 /d/Projects/platinum/client_packages/gta5platinum-client (master)"
+  },
+  "keywords": [
+    "found",
+    "0",
+    "vulnerabilities"
+  ],
+  "author": "It only covers the most common items, and tries to guess sensible defaults.",
+  "license": "ISC"
+}
