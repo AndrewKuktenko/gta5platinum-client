@@ -33,6 +33,6 @@ module.exports = {
       'max-len': 0,
       'import/prefer-default-export': 0,
       'no-param-reassign': ["error", { "props": false }],
-      'linebreak-style': ["error", "unix"],
+      "linebreak-style": ["error", (process.platform === "win32" ? "windows" : "unix")],
     },
   };

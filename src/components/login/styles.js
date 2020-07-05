@@ -16,4 +16,3 @@ export const Container = styled.div`
   background-color: red;
   color: white;
 `;
-
