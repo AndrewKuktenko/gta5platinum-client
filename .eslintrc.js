@@ -32,6 +32,7 @@ module.exports = {
       'react/destructuring-assignment': 0,
       'max-len': 0,
       'import/prefer-default-export': 0,
-      'no-param-reassign': ["error", { "props": false }]
+      'no-param-reassign': ["error", { "props": false }],
+      'linebreak-style': ["error", "unix"],
     },
   };

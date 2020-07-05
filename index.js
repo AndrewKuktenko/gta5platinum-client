@@ -1,7 +1,8 @@
 let browser;
 
 mp.events.add('loginBrowser', () => {
-  browser = mp.browsers.new('package://public/index.html');
+  mp.gui.cursor.show(true, true);
+  browser = mp.browsers.new('package://cef/index.html');
 });
 
 // Handle event from server and send data to react app
