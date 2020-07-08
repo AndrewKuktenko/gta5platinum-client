@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const spreadOperatorPlugin = require('babel-plugin-transform-object-rest-spread');
 
 let NODE_ENV = 'production';
 if (process.env.NODE_ENV) {
@@ -24,8 +23,10 @@ module.exports = {
       exclude: [/node_modules/],
       loader: 'babel-loader',
       options: {
-        presets: ['react', 'es2015'],
-        plugins: [spreadOperatorPlugin],
+        presets: ['@babel/react', '@babel/env'],
+        plugins: [
+          '@babel/plugin-proposal-object-rest-spread'
+        ],
       },
     },
     {

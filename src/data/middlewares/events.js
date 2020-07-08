@@ -3,7 +3,6 @@ import get from 'lodash/get';
 export default () => (next) => (action) => {
   // const endpoint = get(action, 'payload.endpoint');
   // const method = get(action, 'payload.method');
-  // const body = get(action, 'payload.body');
   // const params = get(action, 'payload.params', {});
   // const onSuccess = get(action, 'onSuccess', null);
   // const onFailed = get(action, 'onFailed', null);
