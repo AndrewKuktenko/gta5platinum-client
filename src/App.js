@@ -8,6 +8,7 @@ import {
 import { eventManagerSelector } from './data/selectors/eventManager';
 
 import Authorization from './pages/authorization';
+import CharacterSelector from './pages/characterSelector';
 
 function App() {
   const events = useSelector(eventManagerSelector);
@@ -32,6 +33,7 @@ function App() {
         </Route>
         <Route path="/auth" component={Authorization} />
         <Route path="/clear" component={Clear} />
+        <Route path="/characterSelector" component={CharacterSelector} />
       </>
     </Router>
   );

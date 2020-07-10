@@ -25,7 +25,7 @@ module.exports = {
       options: {
         presets: ['@babel/react', '@babel/env'],
         plugins: [
-          '@babel/plugin-proposal-object-rest-spread'
+          '@babel/plugin-proposal-object-rest-spread',
         ],
       },
     },
@@ -47,6 +47,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, '../client_packages/cef/index.html'),
       template: './public/index.html',
-    }),
+    }), 
   ],
 };

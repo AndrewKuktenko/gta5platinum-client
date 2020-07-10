@@ -1,5 +1,7 @@
+// import events from '../modules/playerEvents';
+
 const initialState = {
-  events: {},
+  events: {}
 };
 
 export default (state = initialState, action) => {

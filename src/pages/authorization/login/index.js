@@ -28,6 +28,7 @@ const Login = ({
 
   useEffect(() => {
     dispatch(addHandler({ eventName: 'onSuccessLogin', handler: onSuccessLogin }));
+    // TODO: remove handler after unmount
   }, []);
 
   const onSubmitLogin = () => {

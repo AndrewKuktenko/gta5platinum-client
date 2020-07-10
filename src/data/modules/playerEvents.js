@@ -1,17 +1,11 @@
-// import eventEmmiter from '../../helpers/events';
-// import { history } from '../../helpers/history';
+import { withRouter } from 'react-router-dom';
 
-// export const PlayerEvents = (dispatch, getState) => {
-//  eventEmmiter.on('clearCEF', (data) => {
-//    history.push('/clear');
-//  });
+export function PlayerEvents({ history }) {
+  return {
+    clearCEF: [() => history.push('/clear')],
+    openAuth: [() => history.push('/auth')],
+    openCharacterSelector: [() => history.push('/characterSelector')],
+  };
+}
 
-//  eventEmmiter.on('showClientAuth', (data) => {
-// mp.gui.chat.push("Show login");
-//    history.push('/login');
-//  });
-
-//  eventEmmiter.on('showClientRegister', (data) => {
-//    history.push('/register');
-//  });
-// };
+export default withRouter(PlayerEvents);
