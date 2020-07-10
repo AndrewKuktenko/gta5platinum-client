@@ -1,11 +1,7 @@
-import { withRouter } from 'react-router-dom';
+const PlayerEvents = {
+  clearCEF: [() => { window.location.href = '/clear'; }],
+  openAuth: [() => { window.location.href = '/auth'; }],
+  openCharacterSelector: [() => { window.location.href = '/characterSelector'; }],
+};
 
-export function PlayerEvents({ history }) {
-  return {
-    clearCEF: [() => history.push('/clear')],
-    openAuth: [() => history.push('/auth')],
-    openCharacterSelector: [() => history.push('/characterSelector')],
-  };
-}
-
-export default withRouter(PlayerEvents);
+export default PlayerEvents;

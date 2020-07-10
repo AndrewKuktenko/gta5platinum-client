@@ -1,7 +1,7 @@
-// import events from '../modules/playerEvents';
+import events from '../modules/playerEvents';
 
 const initialState = {
-  events: {}
+  events,
 };
 
 export default (state = initialState, action) => {
@@ -18,7 +18,17 @@ export default (state = initialState, action) => {
         ...state,
       };
     }
-
+    case 'REMOVE_HANDLER': {
+      const { data } = action;
+      const { eventName, handler } = data;
+      if (eventName in state.events) {
+        const index = state.events[eventName].indexOf(handler);
+        state.events[eventName].splice(index, 1);
+      }
+      return {
+        ...state,
+      };
+    }
     default:
       return state;
   }

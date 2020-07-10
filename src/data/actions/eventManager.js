@@ -7,3 +7,13 @@ export const addHandler = ({ eventName, handler }) => (dispatch) => {
     },
   });
 };
+
+export const removeHandler = ({ eventName, handler }) => (dispatch) => {
+  dispatch({
+    type: 'REMOVE_HANDLER',
+    data: {
+      eventName,
+      handler,
+    },
+  });
+};

@@ -13,7 +13,7 @@ import {
   FormContainer,
   Title,
 } from '../styles';
-import { addHandler } from '../../../data/actions/eventManager';
+import { addHandler, removeHandler } from '../../../data/actions/eventManager';
 
 const Login = ({
   history,
@@ -28,7 +28,9 @@ const Login = ({
 
   useEffect(() => {
     dispatch(addHandler({ eventName: 'onSuccessLogin', handler: onSuccessLogin }));
-    // TODO: remove handler after unmount
+    return () => {
+      dispatch(removeHandler({ eventName: 'onSuccessLogin', handler: onSuccessLogin }));
+    };
   }, []);
 
   const onSubmitLogin = () => {
