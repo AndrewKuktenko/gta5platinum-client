@@ -47,6 +47,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, '../client_packages/cef/index.html'),
       template: './public/index.html',
-    }), 
+    }),
   ],
 };
