@@ -1,84 +1,67 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import * as rpc from 'rage-rpc';
 import {
-  Icon,
-  Input,
-  Button,
-} from 'antd';
-import {
-  Label,
   LoginForm,
   FormContainer,
-  Title,
+  FormInput,
+  ButtonItem,
 } from '../styles';
-import { addHandler } from '../../../data/actions/eventManager';
 
-const Registration = ({
-  history,
-}) => {
-  const dispatch = useDispatch();
+const Registration = () => {
   const [name, setName] = useState();
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
 
-  const onSuccessRegistration = () => {
-    history.push('/clear');
+  const onSuccessRegistration = (result) => {
+    console.log('result', result);
   };
 
   useEffect(() => {
-    dispatch(addHandler({ eventName: 'onSuccessRegistration', handler: onSuccessRegistration }));
+    rpc.register('onSuccessRegistration', onSuccessRegistration); // get info from server
+    return () => {
+      rpc.unregister('onSuccessRegistration');
+    };
   }, []);
 
   const onSubmitRegister = () => {
     // eslint-disable-next-line no-undef
-    mp.trigger('registerInformationToServer', email, name, password);
+    mp.trigger('registerInformationToServer', email, name, password); // send data to server
   };
 
   return (
     <FormContainer>
       <LoginForm>
-        <Title>Register</Title>
-        <div>
-          <Label> Email </Label>
-          <Input
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
+        <FormInput
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <Label> Username </Label>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
-
-          <Label> Password </Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
-        </div>
-        <Button
+        <FormInput
+          type="text"
+          name="name"
+          placeholder="Username"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <FormInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <ButtonItem
           type="primary"
           style={{ width: '100%', marginTop: '20px' }}
           onClick={onSubmitRegister}
         >
           Register
-        </Button>
+        </ButtonItem>
       </LoginForm>
     </FormContainer>
   );
 };
-export default withRouter(Registration);
+export default Registration;

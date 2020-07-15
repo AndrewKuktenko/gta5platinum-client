@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import {
-  Icon,
-  Input,
-  Button,
-} from 'antd';
+import * as rpc from 'rage-rpc';
 
 import {
-  Label,
   LoginForm,
   FormContainer,
-  Title,
+  FormInput,
+  ButtonItem,
 } from '../styles';
-import { addHandler, removeHandler } from '../../../data/actions/eventManager';
 
-const Login = ({
-  history,
-}) => {
-  const dispatch = useDispatch();
+const Login = () => {
   const [name, setName] = useState();
   const [password, setPassword] = useState();
 
   const onSuccessLogin = () => {
-    history.push('/clear');
+    console.log('sucsessfull login');
   };
 
   useEffect(() => {
-    dispatch(addHandler({ eventName: 'onSuccessLogin', handler: onSuccessLogin }));
+    rpc.register('onSuccessLogin', onSuccessLogin); // get info from server
     return () => {
-      dispatch(removeHandler({ eventName: 'onSuccessLogin', handler: onSuccessLogin }));
+      rpc.unregister('onSuccessLogin');
     };
   }, []);
 
@@ -41,37 +31,29 @@ const Login = ({
   return (
     <FormContainer>
       <LoginForm>
-        <Title>Sign in your account</Title>
-        <div>
-          <Label> Username </Label>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
+        <FormInput
+          type="text"
+          name="name"
+          placeholder="Username"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-          <Label> Password </Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
-        </div>
-        <Button
+        <FormInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <ButtonItem
           type="primary"
-          style={{ width: '100%', marginTop: '20px' }}
           onClick={onSubmitLogin}
         >
           Sign in
-        </Button>
+        </ButtonItem>
       </LoginForm>
     </FormContainer>
   );
 };
-export default withRouter(Login);
+export default Login;
