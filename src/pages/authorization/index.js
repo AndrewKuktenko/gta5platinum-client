@@ -16,11 +16,11 @@ const Authorization = () => (
   <ImgContainer>
     <Container>
       <LogoImg src={logo} />
-      <TabsItem tabPosition="bottom" tabBarGutter={130}>
-        <TabPane tab="Login" key="login">
+      <TabsItem tabPosition="bottom" tabBarGutter={100}>
+        <TabPane tab="Авторизация" key="login">
           <Login />
         </TabPane>
-        <TabPane tab="Register" key="register">
+        <TabPane tab="Регистрация" key="register">
           <Register />
         </TabPane>
       </TabsItem>

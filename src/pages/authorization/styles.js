@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: row;
   .ant-tabs {
-    top: 28vh;
+    top: 34vh;
   }
   .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
     display: none !important;
@@ -49,7 +49,7 @@ export const Label = styled.div`
 `;
 
 export const LoginForm = styled(Form)`
-    top: 33%;
+    top: 40%;
     color: #fff;
     font-weight: 300;
     font-size: 15px;
@@ -80,42 +80,34 @@ export const ImgContainer = styled.div`
 
 export const FormInput = styled(Input)`
   min-width: 300px;
-  border-right-width: unset !important; 
+  margin-bottom: 15px;
 
   &:hover {
-    border-right-width: unset !important;
     border-color: rgba(243, 232, 230, 0.3);
   }
 
   &:focus {
     border-right-width: unset !important;
     border: 4px solid transparent;
-    box-shadow: 0 0px 9px white;
+    box-shadow: 0 0px 2px white;
     color: #fff;
   }
-
   color: #fff;
   height: 40px;
   text-align: center;
   font-size: 18px;
   font-weight: 450;
   position: relative;
-  border: 4px solid transparent;
   border-radius: 35px;
   background: transparent;
   background-clip: padding-box;
-  padding: 10px;
-  box-shadow: 0 3px 9px black, inset 0 0 3px white;
-  margin-bottom: 15px;
-
-  &:after {
-    position: absolute;
-    top: -4px; bottom: -4px;
-    left: -4px; right: -4px;
-    content: '';
-    z-index: -1;
-    border-radius: 35px;
-  }
+  padding: 2px;
+  
+  border-image-source: conic-gradient(from 0.5turn, #8e96a1, #cfdae8 0.12turn, #8e96a1 0.14turn, #8e96a1 0.5turn, #d5e0ee 0.61turn, #8e96a1 0.64turn, #8e96a1);
+  border-image-slice: 1;
+  background-image: linear-gradient(to bottom,#05070c,#666270),conic-gradient(from 0.5turn,#8e96a1,#cfdae8 0.12turn,#8e96a1 0.14turn,#8e96a1 0.5turn,#d5e0ee 0.61turn,#8e96a1 0.64turn,#8e96a1);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 `;
 
 export const TabsItem = styled(Tabs)`
@@ -168,5 +160,5 @@ export const LogoImg = styled.img`
   height: 160px;
   object-fit: contain;
   position: fixed;
-  top: 6vh;
+  top: 12vh;
 `;

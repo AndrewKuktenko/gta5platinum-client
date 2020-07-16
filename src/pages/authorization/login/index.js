@@ -34,7 +34,7 @@ const Login = () => {
         <FormInput
           type="text"
           name="name"
-          placeholder="Username"
+          placeholder="Логин"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -42,15 +42,16 @@ const Login = () => {
         <FormInput
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Пароль"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <ButtonItem
           type="primary"
           onClick={onSubmitLogin}
+          style={{ width: '100%', marginTop: '20px' }}
         >
-          Sign in
+          Войти
         </ButtonItem>
       </LoginForm>
     </FormContainer>
